@@ -20,10 +20,10 @@
 	</properties>
 
 	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-mongodb</artifactId>
-		</dependency>
+		<!--<dependency>-->
+			<!--<groupId>org.springframework.boot</groupId>-->
+			<!--<artifactId>spring-boot-starter-data-mongodb</artifactId>-->
+		<!--</dependency>-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-redis</artifactId>
@@ -40,7 +40,7 @@
 		<dependency>
 			<groupId>com.github.pagehelper</groupId>
 			<artifactId>pagehelper</artifactId>
-			<version>4.2.1</version>
+			<version>5.1.4</version>
 		</dependency>
 		<dependency>
 			<groupId>com.alibaba</groupId>
@@ -65,18 +65,18 @@
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
-			<version>3.6</version>
+			<version>3.9</version>
 		</dependency>
 		<dependency>
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava</artifactId>
-			<version>23.0</version>
+			<version>27.1-jre</version>
 		</dependency>
 		<!--阿里 FastJson依赖-->
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>fastjson</artifactId>
-			<version>1.2.47</version>
+			<version>1.2.39</version>
 		</dependency>
 
 	</dependencies>
@@ -97,10 +97,18 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
+				<version>2.1.5.RELEASE</version>
+				<!--<configuration>
 					<mainClass>com.orange.OrangeBookstoreApplication</mainClass>
 					<skip>true</skip>
-				</configuration>
+				</configuration>-->
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 			<!-- mybatis-generator-maven-plugin -->
 			<plugin>
