@@ -12,9 +12,13 @@ public class Result<T> {
 
     private T data;
 
-    public static <T> Result<T> success() {
-        return new Result<T>().setCode(ResultEnum.SUCCESS).setMsg(SUCCESS);
+    public static Result<Void> success(){
+        return success(null);
     }
+
+//    public static <T> Result<T> success() {
+//        return new Result<T>().setCode(ResultEnum.SUCCESS).setMsg(SUCCESS);
+//    }
 
     public static <T> Result<T> success(T data) {
         return new Result<T>().setCode(ResultEnum.SUCCESS).setMsg(SUCCESS).setData(data);

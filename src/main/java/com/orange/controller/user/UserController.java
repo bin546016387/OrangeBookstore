@@ -1,7 +1,6 @@
 package com.orange.controller.user;
 
 import com.orange.base.result.Result;
-import com.orange.dao.pojo.user.User;
 import com.orange.service.user.UserServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,6 +19,7 @@ public class UserController {
 
     @RequestMapping("/search")
     public Result<?> searchUser() {
+        logger.info("user/search");
         return Result.success(userService.searchUser());
     }
 

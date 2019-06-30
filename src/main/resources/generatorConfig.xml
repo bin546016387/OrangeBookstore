@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 <generatorConfiguration>
     <!--加载配置文件，为下面读取数据库信息准备-->
-    <properties resource="application.properties"/>
+    <!--<properties resource="application.properties"/>-->
 
     <!--defaultModelType="flat" 大数据字段，不分表 -->
     <context id="Mysql" targetRuntime="MyBatis3Simple" defaultModelType="flat">
@@ -15,6 +15,9 @@
         <plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
 
         <plugin type="org.mybatis.generator.plugins.ToStringPlugin" />
+
+        <!-- 配置内置的或者自定义的Plugin 需要打jar包后才能启用-->
+        <!--<plugin type="com.orange.config.mybatis.plugin.BaseMapperGeneratorPlugin"/>-->
 
         <!-- 注释 -->
         <commentGenerator >
@@ -43,20 +46,19 @@
 
         <!-- 生成mapxml文件 -->
         <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources/db" >
-            <property name="enableSubPackages" value="false" />
+            <property name="enableSubPackages" value="true" />
         </sqlMapGenerator>
 
         <!-- 生成mapxml对应client，也就是接口dao -->
         <javaClientGenerator targetPackage="com.orange.dao.mapper" targetProject="src/main/java" type="XMLMAPPER" >
-            <property name="enableSubPackages" value="false" />
+            <property name="enableSubPackages" value="true" />
         </javaClientGenerator>
 
         <table tableName="t_user" domainObjectName="user.User" mapperName="user.UserMapper"
                enableCountByExample="true"
-               enableUpdateByExample="true"
-               enableDeleteByExample="true"
                enableSelectByExample="true"
-               selectByExampleQueryId="true">
+               enableDeleteByExample="true"
+               >
             <!--<generatedKey column="id" sqlStatement="Mysql" identity="true" />-->
         </table>
 
